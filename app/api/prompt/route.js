@@ -7,8 +7,14 @@ export const GET = async (request) => {
 
         const prompts = await Prompt.find({}).populate('creator');
 
+        const headers = {
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-store, max-age=0', // Add this line to disable caching
+        };
+
         return new Response(JSON.stringify(prompts), {
-            status: 200
+            status: 200,
+            headers,
         })
     } catch(error) {
         console.log(error);
