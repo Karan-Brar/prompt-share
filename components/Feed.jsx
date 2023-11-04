@@ -33,8 +33,12 @@ const Feed = () => {
     setAllPosts(data);
   };
 
-  useEffect(() => {
-    fetchPosts();
+  useEffect(async () => {
+    const response = await fetch("/api/prompt");
+    const data = await response.json();
+    console.log("cool")
+    setAllPosts(data);
+
   }, []);
 
   const filterPrompts = (searchtext) => {
