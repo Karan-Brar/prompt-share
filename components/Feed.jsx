@@ -28,7 +28,9 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const response = await fetch("/api/prompt", { cache: 'no-store' });
+      const currentDate = new Date();
+      const timestamp = currentDate.getTime();
+      const response = await fetch("/api/prompt", {cache:{'no-store'});
       const data = await response.json();
       console.log(data)
       setAllPosts(data);
