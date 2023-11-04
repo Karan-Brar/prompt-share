@@ -28,6 +28,7 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       const currentDate = new Date();
       const timestamp = currentDate.getTime();
       const response = await fetch(`/api/prompt?timestamp=${timestamp}`, {cache:'no-store'});
